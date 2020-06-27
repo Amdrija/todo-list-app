@@ -3,7 +3,7 @@ import AddTaskComponent from '../Add-task/index.vue';
 export default {
   name: 'Task',
   props: ['task', 'index'],
-  componets: {
+  components: {
     addTask: AddTaskComponent,
   },
   data() {
