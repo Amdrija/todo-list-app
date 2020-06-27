@@ -1,6 +1,9 @@
 <template>
-  <div class="row flex">
+  <div class="row">
     <sidebar></sidebar>
+    <main>
+      <project></project>
+    </main>
   </div>
 </template>
 

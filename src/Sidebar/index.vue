@@ -8,6 +8,9 @@
         <a href="#!" class="white-text"><h4>Projects</h4></a>
       </li>
       <sidebarProject></sidebarProject>
+      <li>
+        <addProject></addProject>
+      </li>
     </ul>
     <a
       href="#"

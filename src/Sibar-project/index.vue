@@ -5,6 +5,7 @@
         5
       </span>
       Uncategorized
+      <i class="material-icons">delete</i>
     </a>
   </li>
 </template>
