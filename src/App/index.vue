@@ -1,6 +1,8 @@
 <template>
-  <p>Radi</p>
+  <div class="row flex">
+    <sidebar></sidebar>
+  </div>
 </template>
 
 <script src="./script.js"></script>
-<style scoped src="./style.css"></style>
+<style lang="scss" scoped src="./style.scss"></style>
