@@ -1,12 +1,7 @@
 <template>
   <li>
-    <div class="input-field margin">
-      <input
-        placeholder="New Project"
-        id="new_project_name"
-        type="text"
-        class="white-text"
-      />
+    <div class="input-field margin-horizontal">
+      <input placeholder="New Project" id="new_project_name" type="text" />
     </div>
   </li>
 </template>

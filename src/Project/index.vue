@@ -4,6 +4,12 @@
     <h4>Uncategorized</h4>
     <task></task>
     <task></task>
+    <task></task>
+    <div class="center-align">
+      <a class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
   </div>
 </template>
 

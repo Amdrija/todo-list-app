@@ -1,18 +1,11 @@
 import Vue from 'vue';
 import AppComponent from './App/index.vue';
 import 'materialize-css';
-import 'materialize-css/dist/css/materialize.css';
+import 'materialize-css/dist/css/materialize_custom.css';
 import 'material-design-icons/iconfont/material-icons.css';
+import './scripts/initialize';
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.datepicker');
-  var instances = M.Datepicker.init(elems);
-});
+projectList = [];
 
 let vm = new Vue({
   el: '#app',

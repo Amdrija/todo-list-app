@@ -1,7 +1,7 @@
 <template>
   <li>
-    <a href="#!" class="white-text">
-      <span class="badge new white deep-purple-text" data-badge-caption="">
+    <a href="#!">
+      <span class="badge new indigo darken-4 white-text" data-badge-caption="">
         5
       </span>
       Uncategorized

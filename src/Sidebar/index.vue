@@ -1,11 +1,8 @@
 <template>
   <div>
-    <ul
-      id="slide-out"
-      class="sidenav sidenav-fixed deep-purple darken-1 z-depth-2 white-text"
-    >
+    <ul id="slide-out" class="sidenav sidenav-fixed z-depth-2 ">
       <li>
-        <a href="#!" class="white-text"><h4>Projects</h4></a>
+        <a href="#!"><h4>Projects</h4></a>
       </li>
       <sidebarProject></sidebarProject>
       <li>
@@ -15,9 +12,11 @@
     <a
       href="#"
       data-target="slide-out"
-      class="sidenav-trigger deep-purple-text"
+      class="sidenav-trigger indigo-text text-darken-4"
       v-on:click="toggleNav"
-      ><i class="material-icons">menu</i></a
+    >
+      <i class="material-icons margin">arrow_forward</i>
+      <h4 class="inline">Projects</h4></a
     >
   </div>
 </template>
