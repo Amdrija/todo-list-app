@@ -1,36 +1,36 @@
 <template>
-  <div class="card amber lighten-5">
-    <div class="card-content">
-      <span class="card-title">
-        <span class="badge">
-          <label>
-            <input type="checkbox" />
-            <span></span>
-          </label>
+  <div>
+    <addTask v-if="editMode" v-bind:task="task"></addTask>
+    <div v-else class="card amber lighten-5">
+      <div class="card-content">
+        <span class="card-title">
+          <span class="badge">
+            <label>
+              <input
+                type="checkbox"
+                v-model="completed"
+                v-on:click="changeTaskComplete"
+              />
+              <span></span>
+            </label>
+          </span>
+          <h5>
+            {{ task.getTitle() }}
+          </h5>
+          <i class="material-icons" v-on:click="editMode = !editMode">edit</i>
+          <i class="material-icons">delete</i>
         </span>
-        <div class="input-field inline no-margin">
-          <input type="text" value="TaskName" />
-        </div>
-      </span>
-      <div class="input-field">
-        <textarea class="materialize-textarea">
-I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</textarea
-        >
-      </div>
-
-      <div class="date-priority-container">
-        <div>
-          <label>Due date</label>
-          <input type="text" class="datepicker" />
-        </div>
-        <div class="input-field col s2">
-          <select>
-            <option value="" disabled selected>Choose priority:</option>
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
-          </select>
-          <label>Priority</label>
+        <p>{{ task.getDescription() }}</p>
+        <div class="divider margin-vertical"></div>
+        <div class="date-priority-container">
+          <div>
+            <label>Due date</label>
+            <p>{{ task.getDueDate() }}</p>
+          </div>
+          <div class="col s2 m1 l1">
+            <label>priority</label>
+            <p>{{ task.getPriority() }}</p>
+          </div>
         </div>
       </div>
     </div>

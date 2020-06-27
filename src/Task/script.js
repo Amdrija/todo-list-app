@@ -1,6 +1,18 @@
+import Task from '../scripts/task';
+import AddTaskComponent from '../Add-task/index.vue';
 export default {
   name: 'Task',
+  props: ['task', 'index'],
+  componets: {
+    addTask: AddTaskComponent,
+  },
   data() {
-    return {};
+    return {
+      editMode: false,
+      completed: false,
+    };
+  },
+  methods: {
+    changeTaskComplete: function(event) {},
   },
 };

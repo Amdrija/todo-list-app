@@ -5,8 +5,6 @@ import 'materialize-css/dist/css/materialize_custom.css';
 import 'material-design-icons/iconfont/material-icons.css';
 import './scripts/initialize';
 
-projectList = [];
-
 let vm = new Vue({
   el: '#app',
   components: {

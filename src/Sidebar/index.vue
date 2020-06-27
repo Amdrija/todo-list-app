@@ -13,7 +13,6 @@
       href="#"
       data-target="slide-out"
       class="sidenav-trigger indigo-text text-darken-4"
-      v-on:click="toggleNav"
     >
       <i class="material-icons margin">arrow_forward</i>
       <h4 class="inline">Projects</h4></a
