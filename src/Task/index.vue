@@ -1,6 +1,10 @@
 <template>
   <div>
-    <addTask v-if="editMode" v-bind:task="task"></addTask>
+    <addTask
+      v-if="editMode"
+      v-bind:task="task"
+      v-on:save-task="toggleEditMode()"
+    ></addTask>
     <div v-else class="card amber lighten-5">
       <div class="card-content">
         <span class="card-title">
@@ -8,8 +12,8 @@
             <label>
               <input
                 type="checkbox"
-                v-model="completed"
-                v-on:click="changeTaskComplete"
+                v-bind:checked="completed"
+                v-on:click="changeTaskComplete()"
               />
               <span></span>
             </label>
@@ -17,8 +21,8 @@
           <h5>
             {{ task.getTitle() }}
           </h5>
-          <i class="material-icons" v-on:click="editMode = !editMode">edit</i>
-          <i class="material-icons">delete</i>
+          <i class="material-icons" v-on:click="toggleEditMode()">edit</i>
+          <i class="material-icons" v-on:click="removeTask()">delete</i>
         </span>
         <p>{{ task.getDescription() }}</p>
         <div class="divider margin-vertical"></div>

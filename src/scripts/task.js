@@ -28,13 +28,13 @@ function Task(
   };
 
   this.setDescription = function(new_description) {
-    if (new_description && typeof new_title == 'string') {
-      _description = description;
+    if (new_description && typeof new_description == 'string') {
+      _description = new_description;
     }
   };
 
   this.getDescription = function() {
-    return description;
+    return _description;
   };
 
   this.setDueDate = function(new_dueDate) {

@@ -2,7 +2,7 @@
   <div class="row">
     <sidebar></sidebar>
     <main>
-      <project></project>
+      <project v-bind:project="project"></project>
     </main>
   </div>
 </template>
