@@ -1,6 +1,6 @@
-function Project(name) {
+function Project(name, task_list = []) {
   let _name;
-  let _task_list = [];
+  let _task_list = task_list;
 
   this.setName = function(new_name) {
     if (new_name && typeof new_name == 'string') {
@@ -29,7 +29,10 @@ function Project(name) {
   };
 
   this.toPlainObject = function() {
-    return { taskList: _task_list.map((task) => task.toPlainObject()) };
+    return {
+      name: _name,
+      taskList: _task_list.map((task) => task.toPlainObject()),
+    };
   };
 }
 

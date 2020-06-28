@@ -18,8 +18,6 @@ function ProjectList(p_list = [new Project('Uncategorized')]) {
     return _project_list;
   };
 
-  _project_list[0].addTask(new Task());
-
   this.toPlainObject = function() {
     return {
       projectList: _project_list.map((project) => project.toPlainObject()),

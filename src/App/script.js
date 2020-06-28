@@ -4,18 +4,42 @@ import Task from '../scripts/task';
 import Project from '../scripts/project';
 import ProjectList from '../scripts/projectList';
 
-/*
 function newProjectListLocalStorage() {
-  localStorage.setItem('projectList', new ProjectList());
+  localStorage.setItem(
+    'projectList',
+    JSON.stringify(new ProjectList().toPlainObject())
+  );
+}
+
+function parseFromLocalStorage(localProjects) {
+  let project_list = [];
+  for (let project of localProjects.projectList) {
+    let task_list = [];
+
+    for (let task of project.taskList) {
+      task_list.push(
+        new Task(
+          task.title,
+          task.description,
+          task.dueDate,
+          task.priority,
+          task.completed
+        )
+      );
+    }
+    project_list.push(new Project(project.name, task_list));
+  }
+
+  return new ProjectList(project_list);
 }
 
 function getProjectListFromLocalStorage() {
-  let localProjects = localStorage.getItem('projectList');
-  if (!localProjects) {
+  if (!localStorage.getItem('projectList')) {
     newProjectListLocalStorage();
   }
-  return localProjects;
-}*/
+
+  return parseFromLocalStorage(JSON.parse(localStorage.getItem('projectList')));
+}
 
 export default {
   name: 'App',
@@ -25,22 +49,20 @@ export default {
   },
   data() {
     return {
-      projectList: new ProjectList(),
+      projectList: getProjectListFromLocalStorage(),
       index: 0,
     };
   },
 
   methods: {
     updateSidebarTaskNumber: function() {
-      //the first child of app is sidebar
-      //the index-th child of sidebar is our current project
-      //this is to update the number of tasks in the project
-      this.$children[0].$children[this.index].$forceUpdate();
+      this.$children[0].$children.forEach((child) => child.$forceUpdate());
     },
     updateApp: function() {
       this.updateSidebarTaskNumber();
+      this.updateLocalStorage();
 
-      //update projects screen
+      //this is so that project screen updates as well
       this.$forceUpdate();
     },
     addProject: function(index) {
@@ -56,6 +78,12 @@ export default {
         this.index = 0;
       }
       this.$forceUpdate();
+    },
+    updateLocalStorage: function() {
+      localStorage.setItem(
+        'projectList',
+        JSON.stringify(this.projectList.toPlainObject())
+      );
     },
   },
 };
