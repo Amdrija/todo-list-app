@@ -5,7 +5,15 @@
       v-bind:task="task"
       v-on:save-task="toggleEditMode()"
     ></addTask>
-    <div v-else class="card amber lighten-5">
+    <div
+      v-else
+      class="card lighten-5"
+      v-bind:class="{
+        red: task.getPriority() == 'High',
+        amber: task.getPriority() == 'Medium',
+        green: task.getPriority() == 'Low',
+      }"
+    >
       <div class="card-content">
         <span class="card-title">
           <span class="badge">
