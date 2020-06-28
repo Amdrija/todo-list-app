@@ -6,11 +6,9 @@ This is an app to manage your to do lists. You can visit it here: https://amdrij
 
 You can group group todos into projects. With each todo you can choose its title, description, priority and due date.
 Based on priority, the todos will have a different color:  
-```diff
- - - Red for high priority  
- - ! Yellow for medium priority
- - + Green for low priority
- ```
+-  Red for high priority  
+-  Yellow for medium priority
+-  Green for low priority
 
 The app uses local storage to store your todos, so you won't lose them when you referesh the page. *If you clear cookies you will lose your todos."
 
