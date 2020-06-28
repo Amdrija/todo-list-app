@@ -72,6 +72,16 @@ function Task(
   this.setDueDate(dueDate);
   this.setPriority(priority);
   this.setCompleted(completed);
+
+  this.toPlainObject = function() {
+    return {
+      title: _title,
+      description: _description,
+      dueDate: _dueDate,
+      priority: _priority,
+      completed: _completed,
+    };
+  };
 }
 
 export default Task;

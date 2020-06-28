@@ -1,8 +1,8 @@
 import Task from '../scripts/task';
 import Project from '../scripts/project';
 
-function ProjectList() {
-  let _project_list = [new Project('Uncategorized')];
+function ProjectList(p_list = [new Project('Uncategorized')]) {
+  let _project_list = p_list;
 
   this.addProject = function(project) {
     _project_list.push(project);
@@ -19,6 +19,12 @@ function ProjectList() {
   };
 
   _project_list[0].addTask(new Task());
+
+  this.toPlainObject = function() {
+    return {
+      projectList: _project_list.map((project) => project.toPlainObject()),
+    };
+  };
 }
 
 export default ProjectList;

@@ -27,6 +27,10 @@ function Project(name) {
   this.getTaskList = function() {
     return _task_list;
   };
+
+  this.toPlainObject = function() {
+    return { taskList: _task_list.map((task) => task.toPlainObject()) };
+  };
 }
 
 export default Project;

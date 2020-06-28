@@ -16,6 +16,12 @@ export default {
     addProject: function(projectName) {
       this.$props.projectList.addProject(new Project(projectName));
       this.$forceUpdate();
+
+      //so we can switch to the new project when we add it
+      this.$emit(
+        'add-project',
+        this.$props.projectList.getProjectList().length - 1
+      );
     },
 
     removeProject: function(index) {
