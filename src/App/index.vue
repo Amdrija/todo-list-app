@@ -1,8 +1,17 @@
 <template>
   <div class="row">
-    <sidebar></sidebar>
+    <sidebar
+      v-bind:projectList="projectList"
+      v-on:choose-project="chooseProject($event)"
+      v-on:remove-project="removeProject($event)"
+    ></sidebar>
     <main>
-      <project v-bind:project="project"></project>
+      <project
+        v-bind:key="index"
+        v-bind:project="projectList.getProjectList()[index]"
+        v-on:add-task="updateSidebarTaskNumber()"
+        v-on:remove-task="updateSidebarTaskNumber()"
+      ></project>
     </main>
   </div>
 </template>

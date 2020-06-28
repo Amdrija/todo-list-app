@@ -3,7 +3,7 @@
     <span class="badge">
       <h4>{{ this.$props.project.getTaskList().length }}</h4>
     </span>
-    <h4>Uncategorized</h4>
+    <h4>{{ this.$props.project.getName() }}</h4>
     <task
       v-for="(task, index) in this.$props.project.getTaskList()"
       v-bind:task="task"

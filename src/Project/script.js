@@ -20,10 +20,12 @@ export default {
     addTask: function() {
       this.$props.project.addTask(this.newTask);
       this.newTask = new Task();
+      this.$emit('add-task');
     },
     removeTask: function(index) {
       this.$props.project.removeTask(index);
       this.$forceUpdate();
+      this.$emit('remove-task');
     },
   },
 };

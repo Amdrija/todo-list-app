@@ -4,9 +4,15 @@
       <li>
         <a href="#!"><h4>Projects</h4></a>
       </li>
-      <sidebarProject></sidebarProject>
+      <sidebarProject
+        v-for="(project, index) in this.$props.projectList.getProjectList()"
+        v-bind:key="index"
+        v-bind:project="project"
+        v-on:remove-project="removeProject($event)"
+        v-on:choose-project="$emit('choose-project', $event)"
+      ></sidebarProject>
       <li>
-        <addProject></addProject>
+        <addProject v-on:add-project="addProject($event)"></addProject>
       </li>
     </ul>
     <a

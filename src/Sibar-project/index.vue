@@ -1,11 +1,13 @@
 <template>
-  <li>
+  <li v-on:click="$emit('choose-project', $vnode.key)">
     <a href="#!">
       <span class="badge new indigo darken-4 white-text" data-badge-caption="">
-        5
+        {{ project.getTaskList().length }}
       </span>
-      Uncategorized
-      <i class="material-icons">delete</i>
+      {{ project.getName() }}
+      <i class="material-icons" v-on:click="$emit('remove-project', $vnode.key)"
+        >delete</i
+      >
     </a>
   </li>
 </template>

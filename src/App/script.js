@@ -2,21 +2,7 @@ import SidebarComponent from '../Sidebar/index.vue';
 import ProjectComponent from '../Project/index.vue';
 import Task from '../scripts/task';
 import Project from '../scripts/project';
-
-let test_project = new Project('Uncategorized');
-test_project
-  .addTask(new Task('Task 1', 'dfgdsfgsdgfsdfgdsfg', 'Jun 30, 2020', 'High'))
-  .addTask(
-    new Task('Task 2', 'Lorem ipsum bla bla bla', 'Jul 4, 2020', 'Medium', true)
-  )
-  .addTask(
-    new Task(
-      'Task 3',
-      'I got my red dress on tonight, dancing in the dark...',
-      'Jun 27, 2020',
-      'Low'
-    )
-  );
+import ProjectList from '../scripts/projectList';
 
 export default {
   name: 'App',
@@ -26,7 +12,31 @@ export default {
   },
   data() {
     return {
-      project: test_project,
+      projectList: new ProjectList(),
+      index: 0,
     };
+  },
+
+  methods: {
+    updateSidebarTaskNumber: function() {
+      //the first child of app is sidebar
+      //the index-th child of sidebar is our current project
+      //this is to update the number of tasks in the project
+      this.$children[0].$children[this.index].$forceUpdate();
+      //because <add task> will always be the second child when you first start up the app
+      //so if we add elements afterwards, they would actually be pushed by 1 place
+      //also if we were to remove the first element, then <addtask> would become the first element
+      //and all the other will remain pushed by 1
+      this.$children[0].$children[this.index + 1].$forceUpdate();
+    },
+    chooseProject: function(index) {
+      this.index = index;
+    },
+    //if we remove a project from the list that is currently displayed
+    removeProject: function(index) {
+      if (index == this.index) {
+        this.index = 0;
+      }
+    },
   },
 };
